@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawn Care Services - George Harper Trees & Gardens - Professional Lawn Care in Nailsworth, Stroud</title>
+    <meta name="description" content="Professional lawn care services in Nailsworth, Stroud. Garden maintenance, mowing, strimming, edging, fertilization, weed control and garden clean-ups.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafbfc;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+            color: white;
+            padding: 25px 0;
+            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #ffffff 0%, #f0fdf4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #16a34a;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .service-box.active {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(34, 197, 94, 0.3);
+        }
+
+        .service-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-box:hover::before {
+            left: 100%;
+        }
+
+        .service-box:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(34, 197, 94, 0.2);
+            color: #15803d;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 25px;
+        }
+
+        .nav-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-item:hover::before, .nav-item.active::before {
+            opacity: 1;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Lawn Care Section */
+        .lawncare-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 60px 0;
+            position: relative;
+            min-height: 80vh;
+        }
+
+        .lawncare-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+        }
+
+        .lawncare-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lawncare-title {
+            font-size: 3rem;
+            color: #374151;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.02) 0%, rgba(34, 197, 94, 0.01) 100%);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.15);
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+
+        .service-item-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 4px 8px rgba(34, 197, 94, 0.3));
+            transition: transform 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .service-item:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .service-details {
+            flex: 1;
+        }
+
+        .service-name {
+            font-size: 1.5rem;
+            color: #16a34a;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            color: #374151;
+            font-weight: 500;
+            line-height: 1.7;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .get-touch-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .get-touch-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .get-touch-btn:hover::before {
+            left: 100%;
+        }
+
+        .get-touch-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.1);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .contact-item {
+            color: #e5e7eb;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            color: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 2.2rem;
+                margin-bottom: 25px;
+            }
+
+            .services-boxes {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .service-box {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                padding: 15px 25px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-item {
+                border-radius: 15px;
+                text-align: center;
+                padding: 12px 20px;
+            }
+
+            .lawncare-section {
+                padding: 40px 0;
+            }
+
+            .lawncare-title {
+                font-size: 2.2rem;
+                margin-bottom: 35px;
+            }
+
+            .service-item {
+                padding: 25px;
+            }
+
+            .service-item-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .service-icon {
+                align-self: center;
+            }
+
+            .service-name {
+                font-size: 1.3rem;
+            }
+
+            .service-description {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-item {
+                padding: 20px;
+            }
+
+            .lawncare-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">George Harper Trees & Gardens</h1>
+                
+                <div class="services-boxes">
+                    <a href="tree-work.html" class="service-box">Tree Work</a>
+                    <a href="lawn-care.html" class="service-box active">Lawn Care</a>
+                    <a href="landscaping.html" class="service-box">Landscaping</a>
+                </div>
+
+                <nav class="nav">
+                    <a href="index.html" class="nav-item">Home</a>
+                    <a href="about.html" class="nav-item">About Us</a>
+                    <a href="gallery.html" class="nav-item">Gallery</a>
+                    <a href="contact.html" class="nav-item">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Lawn Care Section -->
+    <section class="lawncare-section">
+        <div class="container">
+            <div class="lawncare-content">
+                <h2 class="lawncare-title">Lawn Care</h2>
+                
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-item-content">
+                            <div class="service-icon">🌱</div>
+                            <div class="service-details">
+                                <h3 class="service-name">Lawn Care</h3>
+                                <p class="service-description">
+                                    Providing garden maintenance for domestic and commercial clients, mowing, strimming, and edging
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-item-content">
+                            <div class="service-icon">🌿</div>
+                            <div class="service-details">
+                                <h3 class="service-name">Fertilization and Weed Control</h3>
+                                <p class="service-description">
+                                    Grow healthy grass and remove weeds where needed
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-item-content">
+                            <div class="service-icon">🧹</div>
+                            <div class="service-details">
+                                <h3 class="service-name">Clean Ups</h3>
+                                <p class="service-description">
+                                    Garden tidy ups offered all year around for regular or one off visits
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="contact.html" class="get-touch-btn">GET IN TOUCH</a>
+                <div class="contact-item">📞 07940 087 822</div>
+                <div class="contact-item">✉️ g_harper@outlook.com</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
