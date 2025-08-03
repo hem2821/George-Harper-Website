@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - George Harper Trees & Gardens - Professional Tree Surgery & Landscaping in Nailsworth, Stroud</title>
+    <meta name="description" content="View our gallery of professional tree surgery, lawn care and landscaping work in Nailsworth, Stroud. See the quality of our tree removal, pruning and garden services.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafbfc;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+            color: white;
+            padding: 25px 0;
+            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #ffffff 0%, #f0fdf4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #16a34a;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .service-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-box:hover::before {
+            left: 100%;
+        }
+
+        .service-box:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(34, 197, 94, 0.2);
+            color: #15803d;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 25px;
+        }
+
+        .nav-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-item:hover::before, .nav-item.active::before {
+            opacity: 1;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 60px 0;
+            position: relative;
+            min-height: 80vh;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+        }
+
+        .gallery-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-title {
+            font-size: 3rem;
+            color: #374151;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #374151;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(34, 197, 94, 0.9);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .carousel-prev {
+            left: 15px;
+        }
+
+        .carousel-next {
+            right: 15px;
+        }
+
+        /* Gallery Counter */
+        .gallery-counter {
+            text-align: center;
+            margin-top: 20px;
+            color: #374151;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #374151;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: #ef4444;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #374151;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(34, 197, 94, 0.9);
+            color: white;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .get-touch-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .get-touch-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .get-touch-btn:hover::before {
+            left: 100%;
+        }
+
+        .get-touch-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.1);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .contact-item {
+            color: #e5e7eb;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .contact-item:hover {
+            color: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 2.2rem;
+                margin-bottom: 25px;
+            }
+
+            .services-boxes {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .service-box {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                padding: 15px 25px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-item {
+                border-radius: 15px;
+                text-align: center;
+                padding: 12px 20px;
+            }
+
+            .gallery-section {
+                padding: 40px 0;
+            }
+
+            .gallery-title {
+                font-size: 2.2rem;
+                margin-bottom: 35px;
+            }
+
+            .carousel-container {
+                padding: 20px;
+                margin: 0 10px;
+            }
+
+            .carousel-slide {
+                height: 300px;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-slide {
+                height: 250px;
+            }
+
+            .gallery-title {
+                font-size: 1.8rem;
+            }
+
+            .carousel-container {
+                padding: 15px;
+            }
+
+            .carousel-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">George Harper Trees & Gardens</h1>
+                
+                <div class="services-boxes">
+                    <a href="tree-work.html" class="service-box">Tree Work</a>
+                    <a href="lawn-care.html" class="service-box">Lawn Care</a>
+                    <a href="landscaping.html" class="service-box">Landscaping</a>
+                </div>
+
+                <nav class="nav">
+                    <a href="index.html" class="nav-item">Home</a>
+                    <a href="about.html" class="nav-item">About Us</a>
+                    <a href="gallery.html" class="nav-item active">Gallery</a>
+                    <a href="contact.html" class="nav-item">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-content">
+                <h2 class="gallery-title">Our Work Gallery</h2>
+
+                <!-- Carousel Container -->
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track" id="carousel-track">
+                            <!-- Sample images - replace with your actual photos -->
+                            <div class="carousel-slide">
+                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%234285f4' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTree Cutting - Before%3c/text%3e%3c/svg%3e" alt="Professional tree cutting service">
+                            </div>
+                            
+                            <div class="carousel-slide">
+                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%2334a853' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTree Cutting - After%3c/text%3e%3c/svg%3e" alt="Completed tree removal work">
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23ea4335' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eStump Grinding%3c/text%3e%3c/svg%3e" alt="Professional stump grinding">
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23fbbc04' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eLandscaping Work%3c/text%3e%3c/svg%3e" alt="Garden landscaping project">
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%239c27b0' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTractor Work%3c/text%3e%3c/svg%3e" alt="Tractor and machinery work">
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23ff5722' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTeam at Work%3c/text%3e%3c/svg%3e" alt="Professional team working">
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <button class="carousel-nav carousel-prev" id="prev-btn">‹</button>
+                        <button class="carousel-nav carousel-next" id="next-btn">›</button>
+                    </div>
+
+                    <!-- Gallery Counter -->
+                    <div class="gallery-counter">
+                        <span id="current-slide">1</span> / <span id="total-slides">6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+            <button class="lightbox-close" id="lightbox-close">×</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="contact.html" class="get-touch-btn">GET IN TOUCH</a>
+                <a href="tel:07940087822" class="contact-item">📞 07940 087 822</a>
+                <a href="mailto:g_harper@outlook.com" class="contact-item">✉️ g_harper@outlook.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Gallery functionality without thumbnails
+        class Gallery {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.totalSlides = this.slides.length;
+                this.track = document.getElementById('carousel-track');
+                this.currentSlideEl = document.getElementById('current-slide');
+                this.totalSlidesEl = document.getElementById('total-slides');
+                this.lightbox = document.getElementById('lightbox');
+                this.lightboxImage = document.getElementById('lightbox-image');
+                
+                this.init();
+            }
+
+            init() {
+                this.updateCounter();
+                this.bindEvents();
+                this.updateSlidePosition();
+                
+                // Auto-play functionality (optional)
+                this.startAutoPlay();
+            }
+
+            updateCounter() {
+                this.currentSlideEl.textContent = this.currentSlide + 1;
+                this.totalSlidesEl.textContent = this.totalSlides;
+            }
+
+            updateSlidePosition() {
+                const translateX = -this.currentSlide * 100;
+                this.track.style.transform = `translateX(${translateX}%)`;
+                this.updateCounter();
+            }
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateSlidePosition();
+                this.resetAutoPlay();
+            }
+
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlidePosition();
+                this.resetAutoPlay();
+            }
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateSlidePosition();
+                this.resetAutoPlay();
+            }
+
+            openLightbox(imageSrc) {
+                this.lightboxImage.src = imageSrc;
+                this.lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                this.pauseAutoPlay();
+            }
+
+            closeLightbox() {
+                this.lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                this.resumeAutoPlay();
+            }
+
+            // Auto-play functionality
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 4000); // Change slide every 4 seconds
+            }
+
+            pauseAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                }
+            }
+
+            resumeAutoPlay() {
+                this.startAutoPlay();
+            }
+
+            resetAutoPlay() {
+                this.pauseAutoPlay();
+                this.startAutoPlay();
+            }
+
+            bindEvents() {
+                // Navigation buttons
+                document.getElementById('prev-btn').addEventListener('click', () => this.prevSlide());
+                document.getElementById('next-btn').addEventListener('click', () => this.nextSlide());
+
+                // Slide clicks for lightbox
+                this.slides.forEach((slide, index) => {
+                    slide.addEventListener('click', () => {
+                        const imageSrc = slide.querySelector('img').src;
+                        this.openLightbox(imageSrc);
+                    });
+                });
+
+                // Lightbox controls
+                document.getElementById('lightbox-close').addEventListener('click', () => this.closeLightbox());
+                document.getElementById('lightbox-prev').addEventListener('click', () => {
+                    this.prevSlide();
+                    this.lightboxImage.src = this.slides[this.currentSlide].querySelector('img').src;
+                });
+                document.getElementById('lightbox-next').addEventListener('click', () => {
+                    this.nextSlide();
+                    this.lightboxImage.src = this.slides[this.currentSlide].querySelector('img').src;
+                });
+
+                // Close lightbox on background click
+                this.lightbox.addEventListener('click', (e) => {
+                    if (e.target === this.lightbox) {
+                        this.closeLightbox();
+                    }
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                    if (e.key === 'Escape') this.closeLightbox();
+                });
+
+                // Pause auto-play on hover
+                const carouselContainer = document.querySelector('.carousel-container');
+                carouselContainer.addEventListener('mouseenter', () => {
+                    this.pauseAutoPlay();
+                });
+                carouselContainer.addEventListener('mouseleave', () => {
+                    this.resumeAutoPlay();
+                });
+
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+
+                this.track.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    this.pauseAutoPlay();
+                });
+
+                this.track.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    this.handleSwipe();
+                    this.resumeAutoPlay();
+                });
+
+                this.track.addEventListener('touchmove', (e) => {
+                    e.preventDefault(); // Prevent scrolling
+                });
+            }
+
+            handleSwipe() {
+                const swipeThreshold = 50;
+                const swipeDistance = startX - endX;
+
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0) {
+                        // Swipe left - next slide
+                        this.nextSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        this.prevSlide();
+                    }
+                }
+            }
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Gallery();
+        });
+
+        // Add smooth loading animation
+        window.addEventListener('load', () => {
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.style.opacity = '0';
+            carouselContainer.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                carouselContainer.style.transition = 'all 0.8s ease';
+                carouselContainer.style.opacity = '1';
+                carouselContainer.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
