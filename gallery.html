@@ -203,6 +203,12 @@
             padding: 30px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
         }
 
         .carousel-wrapper {
@@ -229,10 +235,34 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            filter: saturate(1.05) contrast(1.02);
         }
 
         .carousel-slide:hover img {
             transform: scale(1.05);
+            filter: saturate(1.1) contrast(1.05);
+        }
+
+        /* Loading Animation for Images */
+        .image-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            z-index: 5;
+        }
+
+        .image-loading.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         /* Carousel Navigation */
@@ -581,29 +611,55 @@
                 <div class="carousel-container">
                     <div class="carousel-wrapper">
                         <div class="carousel-track" id="carousel-track">
-                            <!-- Sample images - replace with your actual photos -->
+                            <!-- Real photos from George Harper Trees & Gardens -->
                             <div class="carousel-slide">
-                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%234285f4' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTree Cutting - Before%3c/text%3e%3c/svg%3e" alt="Professional tree cutting service">
+                                <img src="File_000.jpeg" alt="Professional tree surgery and landscaping work by George Harper Trees & Gardens">
+                                <div class="image-loading">🌳</div>
                             </div>
                             
                             <div class="carousel-slide">
-                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%2334a853' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTree Cutting - After%3c/text%3e%3c/svg%3e" alt="Completed tree removal work">
+                                <img src="File_004.jpeg" alt="Quality tree care and garden maintenance services">
+                                <div class="image-loading">🌳</div>
                             </div>
 
                             <div class="carousel-slide">
-                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23ea4335' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eStump Grinding%3c/text%3e%3c/svg%3e" alt="Professional stump grinding">
+                                <img src="File_012.jpeg" alt="Expert tree work and landscaping in Nailsworth area">
+                                <div class="image-loading">🌳</div>
                             </div>
 
                             <div class="carousel-slide">
-                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23fbbc04' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eLandscaping Work%3c/text%3e%3c/svg%3e" alt="Garden landscaping project">
+                                <img src="File_013.jpeg" alt="Professional garden services and tree maintenance">
+                                <div class="image-loading">🌳</div>
                             </div>
 
                             <div class="carousel-slide">
-                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%239c27b0' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTractor Work%3c/text%3e%3c/svg%3e" alt="Tractor and machinery work">
+                                <img src="File_014.jpeg" alt="Skilled tree surgery and ground maintenance work">
+                                <div class="image-loading">🌳</div>
                             </div>
 
                             <div class="carousel-slide">
-                                <img src="data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23ff5722' stroke='%23333' stroke-width='2'/%3e%3ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3eTeam at Work%3c/text%3e%3c/svg%3e" alt="Professional team working">
+                                <img src="aa741a70-690f-4a2d-903a-09f91414eca4.jpg" alt="Quality landscaping and tree care services">
+                                <div class="image-loading">🌳</div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="c9c1d5a8-0c1a-43fc-9929-2cb075787a41.jpg" alt="Professional tree work and garden maintenance">
+                                <div class="image-loading">🌳</div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="3021652b-ef74-4b5b-bfa7-d3ab98d548da.jpg" alt="Expert tree surgery and landscaping services">
+                                <div class="image-loading">🌳</div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="30627298-0460-4cde-b4c4-73adc277bced.jpg" alt="Professional ground maintenance and tree care">
+                                <div class="image-loading">🌳</div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="49af6951-2f52-4a7a-8dd5-07f4b483b9ed.jpg" alt="Quality tree surgery and landscaping work">
+                                <div class="image-loading">🌳</div>
                             </div>
                         </div>
 
@@ -614,7 +670,7 @@
 
                     <!-- Gallery Counter -->
                     <div class="gallery-counter">
-                        <span id="current-slide">1</span> / <span id="total-slides">6</span>
+                        <span id="current-slide">1</span> / <span id="total-slides">10</span>
                     </div>
                 </div>
             </div>
@@ -643,7 +699,7 @@
     </footer>
 
     <script>
-        // Enhanced Gallery functionality without thumbnails
+        // Enhanced Gallery functionality with image loading animations
         class Gallery {
             constructor() {
                 this.currentSlide = 0;
@@ -662,9 +718,37 @@
                 this.updateCounter();
                 this.bindEvents();
                 this.updateSlidePosition();
+                this.setupImageLoading();
                 
-                // Auto-play functionality (optional)
+                // Auto-play functionality
                 this.startAutoPlay();
+            }
+
+            setupImageLoading() {
+                // Handle image loading animations for each slide
+                this.slides.forEach((slide, index) => {
+                    const img = slide.querySelector('img');
+                    const loadingDiv = slide.querySelector('.image-loading');
+                    
+                    if (img && loadingDiv) {
+                        img.addEventListener('load', () => {
+                            setTimeout(() => {
+                                loadingDiv.classList.add('hidden');
+                            }, 300);
+                        });
+                        
+                        // Handle error case
+                        img.addEventListener('error', () => {
+                            loadingDiv.classList.add('hidden');
+                            console.log(`Failed to load image: ${img.src}`);
+                        });
+                        
+                        // If image is already cached
+                        if (img.complete) {
+                            loadingDiv.classList.add('hidden');
+                        }
+                    }
+                });
             }
 
             updateCounter() {
@@ -696,8 +780,9 @@
                 this.resetAutoPlay();
             }
 
-            openLightbox(imageSrc) {
+            openLightbox(imageSrc, altText) {
                 this.lightboxImage.src = imageSrc;
+                this.lightboxImage.alt = altText;
                 this.lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 this.pauseAutoPlay();
@@ -739,8 +824,10 @@
                 // Slide clicks for lightbox
                 this.slides.forEach((slide, index) => {
                     slide.addEventListener('click', () => {
-                        const imageSrc = slide.querySelector('img').src;
-                        this.openLightbox(imageSrc);
+                        const img = slide.querySelector('img');
+                        if (img && img.complete) {
+                            this.openLightbox(img.src, img.alt);
+                        }
                     });
                 });
 
@@ -748,11 +835,19 @@
                 document.getElementById('lightbox-close').addEventListener('click', () => this.closeLightbox());
                 document.getElementById('lightbox-prev').addEventListener('click', () => {
                     this.prevSlide();
-                    this.lightboxImage.src = this.slides[this.currentSlide].querySelector('img').src;
+                    const currentImg = this.slides[this.currentSlide].querySelector('img');
+                    if (currentImg && currentImg.complete) {
+                        this.lightboxImage.src = currentImg.src;
+                        this.lightboxImage.alt = currentImg.alt;
+                    }
                 });
                 document.getElementById('lightbox-next').addEventListener('click', () => {
                     this.nextSlide();
-                    this.lightboxImage.src = this.slides[this.currentSlide].querySelector('img').src;
+                    const currentImg = this.slides[this.currentSlide].querySelector('img');
+                    if (currentImg && currentImg.complete) {
+                        this.lightboxImage.src = currentImg.src;
+                        this.lightboxImage.alt = currentImg.alt;
+                    }
                 });
 
                 // Close lightbox on background click
@@ -819,7 +914,7 @@
             new Gallery();
         });
 
-        // Add smooth loading animation
+        // Add smooth loading animation for the gallery container
         window.addEventListener('load', () => {
             const carouselContainer = document.querySelector('.carousel-container');
             carouselContainer.style.opacity = '0';
