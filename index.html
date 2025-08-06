@@ -240,6 +240,7 @@
             gap: 8px;
             transition: all 0.3s ease;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .contact-item:hover {
@@ -290,6 +291,13 @@
             height: 100%;
             object-fit: cover;
             opacity: 1;
+            filter: saturate(1.1) contrast(1.05);
+            transition: all 0.3s ease;
+        }
+
+        .hero-image:hover {
+            filter: saturate(1.2) contrast(1.1);
+            transform: scale(1.02);
         }
 
         .overlay {
@@ -305,12 +313,18 @@
             position: relative;
             z-index: 10;
             background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
             max-width: 320px;
             width: fit-content;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tree-work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
         }
 
         .tree-work-title {
@@ -331,6 +345,7 @@
             font-size: 1.1rem;
             position: relative;
             padding-left: 20px;
+            transition: all 0.3s ease;
         }
 
         .tree-services li:before {
@@ -338,6 +353,42 @@
             position: absolute;
             left: 0;
             top: 0;
+        }
+
+        .tree-services li:hover {
+            transform: translateX(5px);
+            color: #2d5a2d;
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: all 0.5s ease;
+            z-index: 5;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            font-size: 2rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Footer */
@@ -486,6 +537,10 @@
             .hero-text {
                 font-size: 1rem;
             }
+
+            .main-section {
+                min-height: 300px;
+            }
         }
     </style>
 </head>
@@ -539,7 +594,10 @@
 
     <!-- Main Image Section -->
     <section class="main-section">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEAAQADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/Z" alt="Cut tree logs and timber at George Harper Trees & Gardens yard" class="hero-image">
+        <img src="File_006.jpeg" alt="Professional tree surgery and landscaping equipment at George Harper Trees & Gardens" class="hero-image">
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">🌳</div>
+        </div>
         <div class="overlay"></div>
         
         <div class="container">
@@ -564,5 +622,70 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Enhanced image loading with smooth animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroImage = document.querySelector('.hero-image');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const treeWorkCard = document.querySelector('.tree-work-card');
+            
+            // Show loading animation initially
+            treeWorkCard.style.opacity = '0';
+            treeWorkCard.style.transform = 'translateY(30px)';
+            
+            // Handle image loading
+            if (heroImage) {
+                heroImage.addEventListener('load', function() {
+                    // Hide loading overlay with smooth transition
+                    setTimeout(() => {
+                        loadingOverlay.classList.add('hidden');
+                        
+                        // Animate in the tree work card
+                        setTimeout(() => {
+                            treeWorkCard.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                            treeWorkCard.style.opacity = '1';
+                            treeWorkCard.style.transform = 'translateY(0)';
+                        }, 300);
+                    }, 500);
+                });
+                
+                // Fallback if image fails to load
+                heroImage.addEventListener('error', function() {
+                    console.log('Image failed to load, hiding loading overlay');
+                    loadingOverlay.classList.add('hidden');
+                    treeWorkCard.style.opacity = '1';
+                    treeWorkCard.style.transform = 'translateY(0)';
+                });
+                
+                // If image is already cached and loaded
+                if (heroImage.complete) {
+                    heroImage.dispatchEvent(new Event('load'));
+                }
+            }
+            
+            // Add smooth hover effects to service items
+            const serviceItems = document.querySelectorAll('.tree-services li');
+            serviceItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s ease';
+                });
+            });
+        });
+
+        // Add click feedback to all interactive elements
+        document.querySelectorAll('a, button').forEach(element => {
+            element.addEventListener('click', function(e) {
+                // Add visual feedback
+                this.style.transform = this.style.transform.includes('scale') 
+                    ? this.style.transform.replace(/scale\([^)]*\)/, 'scale(0.95)') 
+                    : (this.style.transform || '') + ' scale(0.95)';
+                
+                setTimeout(() => {
+                    this.style.transform = this.style.transform.replace(/scale\([^)]*\)/, '');
+                }, 150);
+            });
+        });
+    </script>
 </body>
 </html>
