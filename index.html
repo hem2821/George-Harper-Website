@@ -1,691 +1,1003 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>George Harper Trees & Gardens - Professional Tree Surgery & Landscaping in Nailsworth, Stroud</title>
-    <meta name="description" content="Friendly reliable tree surgery and ground maintenance company based in Nailsworth, Stroud. Tree removal, planting, pruning, lawn care and landscaping services.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fafbfc;
-        }
-
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
-            color: white;
-            padding: 25px 0;
-            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header-content {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .logo {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 30px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            letter-spacing: -1px;
-            background: linear-gradient(45deg, #ffffff 0%, #f0fdf4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .services-boxes {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .service-box {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            color: #16a34a;
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.2);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .service-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .service-box:hover::before {
-            left: 100%;
-        }
-
-        .service-box:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 16px 40px rgba(34, 197, 94, 0.2);
-            color: #15803d;
-        }
-
-        /* Navigation */
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 25px;
-        }
-
-        .nav-item {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            color: white;
-            padding: 14px 28px;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
-            font-size: 0.95rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-item:hover::before, .nav-item.active::before {
-            opacity: 1;
-        }
-
-        .nav-item:hover, .nav-item.active {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        /* Contact Bar */
-        .contact-bar {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 25px 0;
-            border-bottom: 1px solid #e2e8f0;
-            position: relative;
-        }
-
-        .contact-bar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.5), transparent);
-        }
-
-        .contact-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .get-touch-btn {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
-            position: relative;
-            overflow: hidden;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .get-touch-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .get-touch-btn:hover::before {
-            left: 100%;
-        }
-
-        .get-touch-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.4);
-        }
-
-        .get-touch-btn:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        .contact-info {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            font-weight: 700;
-            color: #16a34a;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-1px);
-            color: #15803d;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: #f8f9fa;
-            padding: 30px 0;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .tree-icon {
-            font-size: 2rem;
-            color: #4a934a;
-            flex-shrink: 0;
-        }
-
-        .hero-text {
-            font-size: 1.3rem;
-            color: #2d5a2d;
-            font-weight: 500;
-            line-height: 1.5;
-        }
-
-        /* Main Image Section */
-        .main-section {
-            position: relative;
-            background: linear-gradient(135deg, #4a934a 0%, #2d5a2d 100%);
-            min-height: 400px;
-            overflow: hidden;
-            padding: 40px 0;
-        }
-
-        .hero-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 1;
-            filter: saturate(1.1) contrast(1.05);
-            transition: all 0.3s ease;
-        }
-
-        .hero-image:hover {
-            filter: saturate(1.2) contrast(1.1);
-            transform: scale(1.02);
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 40%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(74, 147, 74, 0.85) 0%, rgba(74, 147, 74, 0.3) 100%);
-        }
-
-        .tree-work-card {
-            position: relative;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            max-width: 320px;
-            width: fit-content;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .tree-work-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
-        }
-
-        .tree-work-title {
-            font-size: 1.8rem;
-            color: #2d5a2d;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .tree-services {
-            list-style: none;
-        }
-
-        .tree-services li {
-            color: #4a934a;
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-            position: relative;
-            padding-left: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .tree-services li:before {
-            content: "🌳";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .tree-services li:hover {
-            transform: translateX(5px);
-            color: #2d5a2d;
-        }
-
-        /* Loading Animation */
-        .loading-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            transition: all 0.5s ease;
-            z-index: 5;
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-spinner {
-            font-size: 2rem;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer .get-touch-btn {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .footer .get-touch-btn:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.4);
-            box-shadow: 0 8px 30px rgba(255,255,255,0.1);
-        }
-
-        .footer .contact-item {
-            color: #e5e7eb;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .footer .contact-item:hover {
-            color: #22c55e;
-            transform: translateY(-2px);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .logo {
-                font-size: 2rem;
-                margin-bottom: 20px;
-            }
-
-            .services-boxes {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .service-box {
-                width: 100%;
-                max-width: 250px;
-                text-align: center;
-            }
-
-            .nav {
-                flex-direction: column;
-                gap: 1px;
-            }
-
-            .nav-item {
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.2);
-                border-radius: 0 !important;
-                text-align: center;
-            }
-
-            .nav-item:last-child {
-                border-bottom: none;
-            }
-
-            .contact-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-text {
-                font-size: 1.1rem;
-            }
-
-            .main-section {
-                min-height: 350px;
-                padding: 30px 0;
-            }
-
-            .overlay {
-                width: 100%;
-                background: linear-gradient(180deg, rgba(74, 147, 74, 0.8) 0%, rgba(74, 147, 74, 0.4) 100%);
-            }
-
-            .tree-work-card {
-                margin: 0 auto;
-                max-width: none;
-                width: calc(100% - 40px);
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .tree-work-card {
-                margin: 15px;
-                padding: 25px;
-                width: calc(100% - 30px);
-            }
-
-            .tree-work-title {
-                font-size: 1.5rem;
-            }
-
-            .hero-text {
-                font-size: 1rem;
-            }
-
-            .main-section {
-                min-height: 300px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>George Harper Trees &amp; Gardens — Tree Surgeon, Nailsworth, Stroud</title>
+<meta name="description" content="Tree surgery and ground maintenance in Nailsworth, Stroud, and across Gloucestershire. NPTC qualified, fully insured, free quotes. Call 07940 087 822.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* Dark — hero only */
+  --bg:#0b1d0d;
+  --cream:#f7f4ee;
+  --gold:#c9a64a;
+
+  /* Light — everything after the hero */
+  --light:#f4f1ea;
+  --light-alt:#e9e5dc;
+  --light-card:#ffffff;
+  --light-card-hover:#f6f3ec;
+
+  /* Text on light */
+  --ink:#162818;
+  --ink-body:#364838;
+  --ink-dim:#7a8a7a;
+  --border:#d8d3c9;
+  --border-strong:#b8b2a6;
+
+  /* Accents — adjusted for light backgrounds */
+  --gold-dark:#9a7a28;
+  --green:#2a7d1e;
+  --green-btn:#339922;
+  --green-btn-hover:#277518;
+}
+html{scroll-behavior:smooth}
+body{background:var(--light);color:var(--ink-body);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ── NAV — always dark green ── */
+#site-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;background:linear-gradient(to bottom,rgba(11,29,13,.98) 60%,transparent);transition:background .3s}
+#site-nav.solid{background:rgba(11,29,13,.99)}
+.brand{font-family:'Anton',sans-serif;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);cursor:pointer}
+.brand b{color:var(--gold);font-weight:inherit}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links button{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(247,244,238,.6);transition:color .15s;background:none;border:none;cursor:pointer;padding:0}
+.nav-links button:hover,.nav-links button.active{color:var(--cream)}
+.nav-call{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#0b1d0d;background:var(--gold);padding:11px 24px;border-radius:2px;transition:background .15s}
+.nav-call:hover{background:#dbb95c}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--cream)}
+
+/* ── MOBILE DRAWER — dark ── */
+#drawer{display:none;position:fixed;inset:0;z-index:490;background:rgba(11,29,13,.98);padding:96px 32px 48px;flex-direction:column;gap:20px}
+#drawer.open{display:flex}
+#drawer button{font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(247,244,238,.6);background:none;border:none;cursor:pointer;text-align:left}
+#drawer button:hover{color:var(--cream)}
+#drawer .nav-call{align-self:flex-start;margin-top:12px}
+
+/* ── PAGES ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── SHARED ── */
+.tag{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark)}
+/* primary button — works on both light and dark */
+.btn-g{display:inline-block;background:var(--green-btn);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:16px 40px;border-radius:2px;transition:background .15s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-g:hover{background:var(--green-btn-hover)}
+/* outline on dark hero */
+.btn-o{display:inline-block;background:transparent;color:var(--cream);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:15px 38px;border-radius:2px;border:1px solid rgba(247,244,238,.35);transition:border-color .15s;cursor:pointer}
+.btn-o:hover{border-color:var(--cream)}
+/* outline on light sections */
+.btn-o-light{display:inline-block;background:transparent;color:var(--ink);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:15px 38px;border-radius:2px;border:1px solid var(--border-strong);transition:border-color .15s;cursor:pointer}
+.btn-o-light:hover{border-color:var(--ink)}
+
+/* ── HERO — dark forest green ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 32px 90px;position:relative;overflow:hidden;background:var(--bg)}
+.hero-glow{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(78,168,62,.07) 0%,transparent 60%);pointer-events:none}
+.hero .kicker{font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+.hero .name{font-family:'Anton',sans-serif;font-size:clamp(14px,3vw,40px);text-transform:uppercase;letter-spacing:7px;color:rgba(247,244,238,.32);margin-bottom:10px}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(68px,21vw,320px);line-height:.88;text-transform:uppercase;color:var(--cream)}
+.hero h1 .g{color:#6dcc5a;display:block}
+.rule{width:56px;height:2px;background:var(--gold);margin:34px auto}
+.hero .sub{font-size:16px;font-weight:400;color:rgba(247,244,238,.72);max-width:420px;line-height:1.8;margin-bottom:44px}
+.hero-btns{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);text-align:center}
+.scroll-hint span{display:block;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(247,244,238,.32);margin-bottom:10px}
+.scroll-line{width:1px;height:48px;background:linear-gradient(var(--gold),transparent);margin:0 auto;animation:sl 1.9s ease-in-out infinite}
+@keyframes sl{0%{opacity:1;transform:scaleY(1);transform-origin:top}100%{opacity:0;transform:scaleY(1.5);transform-origin:top}}
+
+/* ── LIGHT SECTIONS ── */
+.strip{background:var(--light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 48px;display:flex;justify-content:center;gap:64px;flex-wrap:wrap}
+.stag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:3.5px;color:var(--ink-dim);display:flex;align-items:center;gap:12px}
+.stag::before{content:'';width:18px;height:1px;background:var(--gold-dark)}
+
+.trust{background:var(--light);display:flex;justify-content:center;gap:64px;flex-wrap:wrap;padding:52px 48px;border-bottom:1px solid var(--border)}
+.trust-item{text-align:center}
+.trust-n{font-family:'Anton',sans-serif;font-size:40px;color:var(--ink);line-height:1}
+.trust-l{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink-dim);margin-top:6px}
+
+.sec{background:var(--light);padding:100px 48px;max-width:1240px;margin:0 auto}
+.sec-hd{margin-bottom:48px}
+.sec-hd h2{font-family:'Anton',sans-serif;font-size:clamp(36px,5vw,60px);text-transform:uppercase;color:var(--ink);margin-top:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.card{background:var(--light-card);border:1px solid var(--border);padding:46px 36px 48px;transition:box-shadow .25s,border-color .25s}
+.card:hover{border-color:var(--border-strong);box-shadow:0 6px 28px rgba(22,40,24,.09)}
+.cnum{font-family:'Anton',sans-serif;font-size:58px;color:rgba(42,125,30,.1);line-height:1;margin-bottom:14px}
+.ctitle{font-family:'Anton',sans-serif;font-size:25px;text-transform:uppercase;color:var(--ink);letter-spacing:1px;margin-bottom:24px}
+.card ul li{font-size:14px;color:var(--ink-body);padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.card ul li:last-child{border-bottom:none}
+.card ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--green);flex-shrink:0}
+.card-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);background:none;border:none;cursor:pointer;padding:0;font-family:'Inter',sans-serif;transition:opacity .15s}
+.card-link:hover{opacity:.7}
+.card-link::after{content:'→'}
+
+.about-band{background:var(--light-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-band-in{max-width:1240px;margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-h{font-family:'Anton',sans-serif;font-size:clamp(38px,5.5vw,74px);text-transform:uppercase;line-height:1;color:var(--ink)}
+.about-h em{color:var(--green);font-style:normal;display:block}
+.loc{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:10px 16px;background:rgba(154,122,40,.08);border:1px solid rgba(154,122,40,.3);border-radius:2px;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--gold-dark)}
+.about-body p{font-size:15px;line-height:1.85;color:var(--ink-body);margin-bottom:18px}
+.about-body p:last-child{margin-bottom:0}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.badge{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);padding:6px 14px;border:1px solid var(--border-strong);border-radius:2px}
+
+.reviews-sec{background:var(--light);padding:100px 48px;max-width:1240px;margin:0 auto}
+.reviews-sec .sec-hd{margin-bottom:48px}
+.reviews-sec .sec-hd h2{font-family:'Anton',sans-serif;font-size:clamp(36px,5vw,60px);text-transform:uppercase;color:var(--ink);margin-top:14px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.tcard{background:var(--light-card);border:1px solid var(--border);padding:36px;transition:box-shadow .25s,border-color .25s}
+.tcard:hover{border-color:var(--border-strong);box-shadow:0 6px 28px rgba(22,40,24,.09)}
+.stars{color:var(--gold-dark);font-size:13px;letter-spacing:2px;margin-bottom:18px}
+.tcard p{font-size:14px;line-height:1.8;color:var(--ink-body);margin-bottom:22px}
+.tcard-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink)}
+.tcard-loc{font-size:11px;color:var(--ink-dim);margin-top:3px}
+
+/* CTA band — dark green island so it pops */
+.cta-band{background:var(--bg);padding:80px 48px;text-align:center}
+.cta-band h2{font-family:'Anton',sans-serif;font-size:clamp(38px,6vw,80px);text-transform:uppercase;line-height:.92;color:var(--cream);margin-bottom:14px}
+.cta-band h2 span{color:var(--gold)}
+.cta-band p{font-size:16px;color:rgba(247,244,238,.65);margin-bottom:38px}
+.cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+
+/* ── INNER PAGES — page-top header ── */
+.page-top{background:var(--bg);padding:160px 48px 72px;max-width:100%;border-bottom:1px solid rgba(255,255,255,.08)}
+.page-top-in{max-width:1240px;margin:0 auto}
+.page-top .tag{display:block;margin-bottom:18px;color:var(--gold)}
+.page-top h1{font-family:'Anton',sans-serif;font-size:clamp(52px,10vw,120px);text-transform:uppercase;line-height:.9;color:var(--cream)}
+.page-top h1 span{color:#6dcc5a}
+.page-top .lead{font-size:16px;color:rgba(247,244,238,.65);max-width:520px;line-height:1.8;margin-top:26px}
+
+/* ── SERVICES PAGE ── */
+.svc-list{background:var(--light);max-width:1240px;margin:0 auto;padding:60px 48px}
+.svc-block{display:grid;grid-template-columns:220px 1fr;gap:60px;padding:60px 0;border-bottom:1px solid var(--border);align-items:start}
+.svc-block:last-child{border-bottom:none}
+.svc-n{font-family:'Anton',sans-serif;font-size:80px;color:rgba(42,125,30,.12);line-height:1;margin-bottom:8px}
+.svc-title{font-family:'Anton',sans-serif;font-size:30px;text-transform:uppercase;color:var(--ink);letter-spacing:1px}
+.svc-desc{font-size:15px;color:var(--ink-body);line-height:1.85;margin-bottom:26px}
+.svc-items{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:28px}
+.svc-items li{background:var(--light-card);border:1px solid var(--border);padding:13px 18px;font-size:13px;color:var(--ink-body);display:flex;align-items:center;gap:10px}
+.svc-items li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--green);flex-shrink:0}
+
+.emerg{background:#1c3d10;border:1px solid rgba(255,255,255,.1);padding:48px;margin-top:8px}
+.emerg .etag{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#f09060;margin-bottom:18px}
+.emerg h3{font-family:'Anton',sans-serif;font-size:clamp(26px,4vw,44px);text-transform:uppercase;color:var(--cream);margin-bottom:14px}
+.emerg p{font-size:15px;color:rgba(247,244,238,.7);line-height:1.8;margin-bottom:26px;max-width:540px}
+
+.areas-band{background:var(--light-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 48px}
+.areas-band-in{max-width:1240px;margin:0 auto}
+.areas-band h2{font-family:'Anton',sans-serif;font-size:clamp(32px,4.5vw,52px);text-transform:uppercase;color:var(--ink);margin:14px 0 36px}
+.area-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.area-cell{background:var(--light-card);border:1px solid var(--border);padding:18px 22px;font-size:13px;font-weight:600;color:var(--ink-dim)}
+.area-cell.pri{color:var(--ink);background:var(--light-card);border-color:var(--border-strong);font-weight:700}
+
+/* ── GALLERY ── */
+.gal-wrap{background:var(--bg);padding:0 0 40px}
+.carousel{position:relative;width:100%;background:#000;overflow:hidden}
+.carousel-track{display:flex;transition:transform .9s cubic-bezier(.4,0,.2,1);will-change:transform}
+.carousel-slide{flex:0 0 100%;position:relative;overflow:hidden}
+.carousel-slide img{width:100%;height:clamp(300px,55vw,700px);object-fit:contain;display:block;opacity:.82;transition:opacity .4s,transform .5s cubic-bezier(.2,0,.2,1)}
+/* .lit is added by JS to the current slide — works on both hover and touch */
+.carousel-slide.lit img{opacity:1;transform:scale(1.015)}
+.carousel:hover .carousel-slide.current img{opacity:1;transform:scale(1.015)}
+.carousel-slide::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 0px transparent;transition:box-shadow .35s ease;pointer-events:none;z-index:5}
+.carousel-slide.lit.accent-gold::after{box-shadow:inset 0 0 0 7px var(--gold)}
+.carousel-slide.lit.accent-green::after{box-shadow:inset 0 0 0 7px #5cbe4a}
+.carousel-slide.lit.accent-cream::after{box-shadow:inset 0 0 0 7px rgba(247,244,238,.75)}
+.carousel:hover .carousel-slide.current.accent-gold::after{box-shadow:inset 0 0 0 7px var(--gold)}
+.carousel:hover .carousel-slide.current.accent-green::after{box-shadow:inset 0 0 0 7px #5cbe4a}
+.carousel:hover .carousel-slide.current.accent-cream::after{box-shadow:inset 0 0 0 7px rgba(247,244,238,.75)}
+.carousel-caption{position:absolute;bottom:0;left:0;right:0;padding:18px 24px;background:none;pointer-events:none;z-index:6;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease}
+/* Desktop — show on hover */
+.carousel:hover .carousel-slide.current .carousel-caption{opacity:1;transform:translateY(0)}
+/* Mobile — always show on the lit slide */
+.carousel-slide.lit .carousel-caption{opacity:1;transform:translateY(0)}
+/* Mobile — always show caption, no hover needed */
+@media(hover:none){
+  .carousel-slide.current .carousel-caption{opacity:1;transform:translateY(0)}
+  .carousel-slide.current img{opacity:1}
+  .carousel-slide.current.accent-gold::after{box-shadow:inset 0 0 0 7px var(--gold)}
+  .carousel-slide.current.accent-green::after{box-shadow:inset 0 0 0 7px #5cbe4a}
+  .carousel-slide.current.accent-cream::after{box-shadow:inset 0 0 0 7px rgba(247,244,238,.75)}
+}
+.c-cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:inline-block;padding:8px 12px;background:rgba(11,29,13,.85)}
+.gallery-jobs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:22px 24px;background:var(--bg)}
+.job-button{padding:10px 14px;border:1px solid rgba(201,166,74,.35);border-radius:2px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.job-button.active,.job-button:hover{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.c-counter{position:absolute;top:20px;right:24px;font-family:'Anton',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);z-index:7}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:52px;height:52px;background:rgba(11,29,13,.75);border:1px solid rgba(255,255,255,.15);color:var(--cream);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,border-color .15s;backdrop-filter:blur(6px)}
+.carousel-btn:hover{background:rgba(201,166,74,.3);border-color:var(--gold)}
+#car-prev{left:20px}
+#car-next{right:20px}
+.carousel-dots{display:flex;justify-content:center;gap:8px;padding:16px 0 32px;background:var(--bg)}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(247,244,238,.2);cursor:pointer;transition:background .2s,transform .2s}
+.dot.active{background:var(--gold);transform:scale(1.35)}
+.carousel-playback{text-align:center;padding:0 24px 24px}
+
+/* ── ABOUT PAGE ── */
+.about-grid{background:var(--light);max-width:1240px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-grid h2{font-family:'Anton',sans-serif;font-size:clamp(38px,5.5vw,68px);text-transform:uppercase;line-height:.92;color:var(--ink);margin:14px 0 22px}
+.about-grid h2 span{color:var(--green)}
+.about-grid p{font-size:15px;color:var(--ink-body);line-height:1.85;margin-bottom:16px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
+.stat{background:var(--light-card);border:1px solid var(--border);padding:26px 22px}
+.stat-n{font-family:'Anton',sans-serif;font-size:40px;color:var(--ink);line-height:1}
+.stat-l{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink-dim);margin-top:5px}
+.cred-list{display:flex;flex-direction:column;gap:3px;margin-top:3px}
+.cred{background:var(--light-card);border:1px solid var(--border);padding:18px 22px;display:flex;align-items:flex-start;gap:14px}
+.cred-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:4px}
+.cred-title{font-size:13px;font-weight:700;color:var(--ink)}
+.cred-sub{font-size:12px;color:var(--ink-dim);margin-top:3px}
+.values{background:var(--light-alt);max-width:100%;padding:72px 0}
+.values-in{max-width:1240px;margin:0 auto;padding:0 48px}
+.values h3{font-family:'Anton',sans-serif;font-size:clamp(26px,3.5vw,42px);text-transform:uppercase;color:var(--ink);margin:14px 0 32px}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.val{background:var(--light-card);border:1px solid var(--border);padding:32px}
+.val-t{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin-bottom:12px}
+.val p{font-size:14px;color:var(--ink-body);line-height:1.8}
+
+/* ── CONTACT PAGE ── */
+.contact-top{background:var(--light);max-width:1240px;margin:0 auto;padding:72px 48px 0;display:grid;grid-template-columns:1fr 1fr;gap:3px;align-items:stretch}
+.contact-details{padding:40px 44px;background:var(--light-card);border:1px solid var(--border)}
+.contact-details .tag{display:block;margin-bottom:16px}
+.contact-details h2{font-family:'Anton',sans-serif;font-size:clamp(32px,4vw,52px);text-transform:uppercase;line-height:.92;color:var(--ink);margin-bottom:28px}
+.contact-details h2 span{color:var(--gold-dark)}
+.ci-list{display:flex;flex-direction:column;gap:3px;margin-bottom:20px}
+.ci{background:var(--light);border:1px solid var(--border);padding:18px 20px;display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:center}
+.ci-ico{width:40px;height:40px;background:rgba(154,122,40,.1);border:1px solid rgba(154,122,40,.25);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ci-lbl{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink-dim);margin-bottom:2px}
+.ci-val{font-size:17px;font-weight:600;color:var(--ink);line-height:1.2}
+.ci-val a{color:inherit;transition:color .15s}
+.ci-val a:hover{color:var(--green)}
+.contact-sub{font-size:14px;color:var(--ink-body);line-height:1.75}
+.map-wrap{border:1px solid var(--border);overflow:hidden;min-height:380px;filter:grayscale(10%) brightness(.97)}
+.map-wrap iframe{width:100%;height:100%;display:block;border:0;min-height:380px}
+.contact-form-row{background:var(--light);max-width:1240px;margin:0 auto;padding:3px 48px 80px}
+.form-inner{background:var(--light-card);border:1px solid var(--border);padding:44px}
+.form-tag{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);display:block;margin-bottom:24px}
+.frow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-bottom:3px}
+.frow.two{grid-template-columns:1fr 1fr}
+.frow.full{grid-template-columns:1fr}
+.ff{display:flex;flex-direction:column}
+.ff label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px}
+.ff input,.ff select,.ff textarea{background:var(--light);border:1px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;padding:14px 18px;outline:none;transition:border-color .2s,background .2s;border-radius:0;-webkit-appearance:none}
+.ff input::placeholder,.ff textarea::placeholder{color:var(--ink-dim)}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--green);background:var(--light-card)}
+.ff textarea{resize:vertical;min-height:120px}
+.ff select option{background:var(--light-card);color:var(--ink)}
+.fsub{margin-top:3px}
+.fsub button{width:100%;background:var(--green-btn);color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:18px;border:none;cursor:pointer;transition:background .15s;font-family:'Inter',sans-serif;border-radius:0}
+.fsub button:hover{background:var(--green-btn-hover)}
+.fsub button:disabled{opacity:.65;cursor:wait}
+.fnote{font-size:12px;color:var(--ink-dim);margin-top:12px;line-height:1.6}
+#form-success{display:none;background:rgba(42,125,30,.07);border:1px solid rgba(42,125,30,.2);padding:32px;text-align:center;margin-top:3px}
+#form-success h4{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+#form-success p{font-size:14px;color:var(--ink-body)}
+
+/* ── FOOTER — dark green ── */
+#site-footer{background:var(--bg);border-top:1px solid rgba(255,255,255,.07);padding:26px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:11px;color:rgba(247,244,238,.35)}
+#site-footer .ft-links button{color:rgba(247,244,238,.4);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-left:22px;cursor:pointer;background:none;border:none;transition:color .15s;font-family:'Inter',sans-serif}
+#site-footer .ft-links button:hover{color:var(--cream)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  #site-nav{padding:18px 24px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:106px 24px 76px}
+  .strip,.trust{padding:18px 24px}
+  .trust{gap:36px}
+  .sec,.reviews-sec{padding:64px 24px}
+  .g3,.tgrid{grid-template-columns:1fr}
+  .about-band-in{grid-template-columns:1fr;padding:64px 24px;gap:36px}
+  .cta-band{padding:56px 24px}
+  .page-top{padding:116px 24px 56px}
+  .svc-list{padding:40px 24px}
+  .svc-block{grid-template-columns:1fr;gap:20px;padding:44px 0}
+  .svc-items{grid-template-columns:1fr}
+  .emerg{padding:32px 24px}
+  .areas-band{padding:56px 24px}
+  .area-grid{grid-template-columns:1fr 1fr}
+  .gal-wrap{padding:0 0 32px}
+  .carousel-caption{padding:20px 24px}
+  #car-prev{left:10px}
+  #car-next{right:10px}
+  .about-grid{grid-template-columns:1fr;padding:56px 24px;gap:40px}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .val-grid{grid-template-columns:1fr}
+  .values-in{padding:0 24px}
+  .contact-top{grid-template-columns:1fr;padding:40px 24px 0}
+  .contact-details{padding:28px 24px}
+  .map-wrap,.map-wrap iframe{min-height:260px}
+  .contact-form-row{padding:3px 24px 72px}
+  .form-inner{padding:28px 24px}
+  .frow,.frow.two{grid-template-columns:1fr}
+  #site-footer{padding:20px 24px}
+  #site-footer .ft-links{display:none}
+}
+@media(max-width:520px){
+  .carousel-btn{width:40px;height:40px;font-size:15px}
+}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <h1 class="logo">George Harper Trees & Gardens</h1>
-                
-                <div class="services-boxes">
-                    <a href="tree-work.html" class="service-box">Tree Work</a>
-                    <a href="lawn-care.html" class="service-box">Lawn Care</a>
-                    <a href="landscaping.html" class="service-box">Landscaping</a>
-                </div>
 
-                <nav class="nav">
-                    <a href="index.html" class="nav-item active">Home</a>
-                    <a href="about.html" class="nav-item">About Us</a>
-                    <a href="gallery.html" class="nav-item">Gallery</a>
-                    <a href="contact.html" class="nav-item">Contact Us</a>
-                </nav>
-            </div>
+<nav id="site-nav">
+  <div class="brand" data-nav="home">George Harper <b>·</b> Trees</div>
+  <div class="nav-links">
+    <button data-nav="home">Home</button>
+    <button data-nav="services">Services</button>
+    <button data-nav="gallery">Gallery</button>
+    <button data-nav="about">About</button>
+    <a href="#" data-nav="contact" class="nav-call">Contact</a>
+  </div>
+  <button class="hamburger" id="ham-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div id="drawer">
+  <button data-nav="home" data-closes-drawer>Home</button>
+  <button data-nav="services" data-closes-drawer>Services</button>
+  <button data-nav="gallery" data-closes-drawer>Gallery</button>
+  <button data-nav="about" data-closes-drawer>About</button>
+  <button data-nav="contact" data-closes-drawer>Contact</button>
+</div>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <p class="kicker">Nailsworth · Stroud · Gloucestershire</p>
+    <p class="name">George Harper</p>
+    <h1>Trees &amp;<span class="g">Gardens</span></h1>
+    <div class="rule"></div>
+    <p class="sub">Tree surgery and ground maintenance done properly. Friendly, reliable, and based in the Stroud valleys.</p>
+    <div class="hero-btns">
+      <a href="tel:07940087822" class="btn-g">Call 07940 087 822</a>
+      <button class="btn-o" data-nav="contact">Get a Free Quote</button>
+    </div>
+    <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <div class="strip">
+    <div class="stag">Tree Surgery</div>
+    <div class="stag">Lawn Care</div>
+    <div class="stag">Landscaping</div>
+    <div class="stag">Emergency Work</div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-item"><div class="trust-n">10+</div><div class="trust-l">Years experience</div></div>
+    <div class="trust-item"><div class="trust-n">NPTC</div><div class="trust-l">Qualified</div></div>
+    <div class="trust-item"><div class="trust-n">£5m</div><div class="trust-l">Public liability</div></div>
+    <div class="trust-item"><div class="trust-n">Free</div><div class="trust-l">Quotes</div></div>
+  </div>
+
+  <section class="sec">
+    <div class="sec-hd"><p class="tag">What We Do</p><h2>Our Services</h2></div>
+    <div class="g3">
+      <div class="card">
+        <div class="cnum">01</div><h3 class="ctitle">Tree Surgery</h3>
+        <ul>
+          <li>Tree Removal</li><li>Tree Planting</li><li>Crown Reduction</li>
+          <li>Deadwooding</li><li>Tree Pruning</li><li>Stump Grinding</li>
+        </ul>
+        <button class="card-link" data-nav="services">View all tree work</button>
+      </div>
+      <div class="card">
+        <div class="cnum">02</div><h3 class="ctitle">Lawn Care</h3>
+        <ul>
+          <li>Mowing &amp; Edging</li><li>Lawn Treatment</li><li>Scarification</li>
+          <li>Aeration</li><li>Seeding &amp; Turfing</li><li>Weed Control</li>
+        </ul>
+        <button class="card-link" data-nav="services">View all lawn work</button>
+      </div>
+      <div class="card">
+        <div class="cnum">03</div><h3 class="ctitle">Landscaping</h3>
+        <ul>
+          <li>Garden Clearance</li><li>Hedge Trimming</li><li>Hard Landscaping</li>
+          <li>Planting Schemes</li><li>Fencing</li><li>Maintenance</li>
+        </ul>
+        <button class="card-link" data-nav="services">View all landscaping</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="about-band">
+    <div class="about-band-in">
+      <div>
+        <h2 class="about-h">Rooted in<em>Stroud</em></h2>
+        <div class="loc">&#128205; Nailsworth, Stroud, Gloucestershire</div>
+      </div>
+      <div class="about-body">
+        <p>George Harper Trees &amp; Gardens is a tree surgery and ground maintenance company based in Nailsworth. We work with homeowners, landowners, and estates across the Stroud district and wider Gloucestershire.</p>
+        <p>Every job gets the same attention. No unnecessary upselling, no shortcuts, and no mess left behind.</p>
+        <p>Fully insured. NPTC qualified. Free quotes on all work.</p>
+        <div class="badges">
+          <span class="badge">NPTC Qualified</span>
+          <span class="badge">Fully Insured</span>
+          <span class="badge">Free Quotes</span>
         </div>
-    </header>
+      </div>
+    </div>
+  </div>
 
-    <!-- Contact Bar -->
-    <section class="contact-bar">
-        <div class="container">
-            <div class="contact-content">
-                <a href="contact.html" class="get-touch-btn">GET IN TOUCH</a>
-                <div class="contact-info">
-                    <a href="tel:07940087822" class="contact-item">📞 07940 087 822</a>
-                    <a href="mailto:g_harper@outlook.com" class="contact-item">✉️ g_harper@outlook.com</a>
-                </div>
-            </div>
+  <section class="reviews-sec">
+    <div class="sec-hd"><p class="tag">Reviews</p><h2>What Customers Say</h2></div>
+    <div class="tgrid">
+      <div class="tcard">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>George removed a large oak that had been causing problems for years. Brilliant job, cleaned up completely, and charged a fair price.</p>
+        <div class="tcard-name">James T.</div><div class="tcard-loc">Nailsworth</div>
+      </div>
+      <div class="tcard">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Called George after a storm brought a tree down across our garden. He was with us the next morning and had it cleared by lunchtime.</p>
+        <div class="tcard-name">Sarah M.</div><div class="tcard-loc">Stroud</div>
+      </div>
+      <div class="tcard">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Really professional from start to finish. George was upfront about what needed doing and didn't try to oversell. The garden looks so much better.</p>
+        <div class="tcard-name">Robert H.</div><div class="tcard-loc">Minchinhampton</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Get a <span>Free Quote</span></h2>
+    <p>No obligation. We'll visit, assess the work, and give you a clear price.</p>
+    <div class="cta-row">
+      <a href="tel:07940087822" class="btn-g">Call 07940 087 822</a>
+      <button class="btn-o" data-nav="contact">Send a Message</button>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div id="page-services" class="page">
+  <div class="page-top"><div class="page-top-in"><span class="tag">What We Do</span>
+    <h1>Our <span>Services</span></h1>
+    <p class="lead">We cover everything from a single tree removal to full ground maintenance contracts. All work is carried out by NPTC qualified arborists with full public liability insurance.</p>
+  </div></div>
+  <div class="svc-list">
+    <div class="svc-block">
+      <div><div class="svc-n">01</div><h2 class="svc-title">Tree Surgery</h2></div>
+      <div>
+        <p class="svc-desc">From a single crown reduction to the full removal of a large tree, we handle all tree surgery work safely and tidily. We carry out proper risk assessments before any climbing work and leave every site clean.</p>
+        <ul class="svc-items">
+          <li>Tree Removal</li><li>Tree Planting</li><li>Crown Reduction</li><li>Crown Thinning</li>
+          <li>Tree Pruning</li><li>Deadwooding</li><li>Pollarding</li><li>Formative Pruning</li>
+        </ul>
+        <a href="tel:07940087822" class="btn-g">Get a Quote</a>
+      </div>
+    </div>
+    <div class="svc-block">
+      <div><div class="svc-n">02</div><h2 class="svc-title">Stump Grinding</h2></div>
+      <div>
+        <p class="svc-desc">After a tree comes down, the stump can be a problem for years. We grind stumps below ground level so the area can be reused, replanted, or simply tidied up.</p>
+        <ul class="svc-items">
+          <li>All stump sizes</li><li>Ground below surface level</li>
+          <li>Chippings removed or left</li><li>Area ready to replant</li>
+        </ul>
+        <a href="tel:07940087822" class="btn-g">Get a Quote</a>
+      </div>
+    </div>
+    <div class="svc-block">
+      <div><div class="svc-n">03</div><h2 class="svc-title">Hedge Cutting</h2></div>
+      <div>
+        <p class="svc-desc">We cut hedges of all sizes, from small garden borders to long field boundaries. One-off cuts or regular scheduled maintenance are both available.</p>
+        <ul class="svc-items">
+          <li>Box, beech, yew, and mixed</li><li>Reduction and reshaping</li>
+          <li>Annual maintenance contracts</li><li>Tall hedges and roadside work</li>
+        </ul>
+        <a href="tel:07940087822" class="btn-g">Get a Quote</a>
+      </div>
+    </div>
+    <div class="svc-block">
+      <div><div class="svc-n">04</div><h2 class="svc-title">Lawn Care</h2></div>
+      <div>
+        <p class="svc-desc">Whether you want a weekly cut or a full restoration programme, we have the equipment and knowledge to keep lawns in good shape throughout the year.</p>
+        <ul class="svc-items">
+          <li>Mowing &amp; edging</li><li>Scarification</li><li>Aeration</li>
+          <li>Overseeding &amp; turfing</li><li>Weed &amp; moss control</li><li>Lawn feed programmes</li>
+        </ul>
+        <a href="tel:07940087822" class="btn-g">Get a Quote</a>
+      </div>
+    </div>
+    <div class="svc-block">
+      <div><div class="svc-n">05</div><h2 class="svc-title">Landscaping</h2></div>
+      <div>
+        <p class="svc-desc">From clearing an overgrown plot to installing new planting schemes and hard landscaping, we can take on a wide range of garden projects.</p>
+        <ul class="svc-items">
+          <li>Garden clearance</li><li>Planting schemes</li><li>Hard landscaping</li>
+          <li>Fencing</li><li>Raised beds and borders</li><li>General maintenance</li>
+        </ul>
+        <a href="tel:07940087822" class="btn-g">Get a Quote</a>
+      </div>
+    </div>
+    <div class="emerg">
+      <p class="etag">24-Hour Response</p>
+      <h3>Emergency Tree Work</h3>
+      <p>Storm damage, fallen trees, and dangerous overhanging branches need dealing with quickly. We offer emergency callouts across the Stroud district and can usually attend within 24 hours.</p>
+      <a href="tel:07940087822" class="btn-g">Call 07940 087 822</a>
+    </div>
+  </div>
+  <div class="areas-band">
+    <div class="areas-band-in">
+      <p class="tag">Where We Work</p>
+      <h2>Service Areas</h2>
+      <div class="area-grid">
+        <div class="area-cell pri">Nailsworth</div><div class="area-cell pri">Stroud</div>
+        <div class="area-cell pri">Minchinhampton</div><div class="area-cell pri">Painswick</div>
+        <div class="area-cell">Dursley</div><div class="area-cell">Wotton-under-Edge</div>
+        <div class="area-cell">Tetbury</div><div class="area-cell">Cirencester</div>
+        <div class="area-cell">Cheltenham</div><div class="area-cell">Gloucester</div>
+        <div class="area-cell">Uley</div><div class="area-cell">Stonehouse</div>
+      </div>
+      <p style="font-size:13px;color:var(--text-dim);margin-top:18px">Not listed? Get in touch. We cover most of Gloucestershire and will travel for larger jobs.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div id="page-gallery" class="page">
+  <div class="page-top"><div class="page-top-in"><span class="tag">Our Work</span>
+    <h1>Work <span>Gallery</span></h1>
+    <p class="lead">Explore our tree work, hedge cutting, lawns and fencing. Photos from the same job are grouped together.</p>
+  </div></div>
+  <div class="gal-wrap">
+    <div class="gallery-jobs" id="car-jobs" role="group" aria-label="Choose a job"></div>
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="car-track"></div>
+      <button class="carousel-btn" id="car-prev" type="button" aria-label="Previous photo">&#8592;</button>
+      <button class="carousel-btn" id="car-next" type="button" aria-label="Next photo">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="car-dots"></div>
+    <div class="carousel-playback"><button type="button" class="job-button" id="car-toggle" aria-controls="car-track">Pause slideshow</button></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <div class="page-top"><div class="page-top-in"><span class="tag">About</span>
+    <h1>George Harper <span>Trees &amp; Gardens</span></h1>
+    <p class="lead">Based in Nailsworth and working across Gloucestershire. Tree surgery and ground maintenance carried out properly, with no shortcuts.</p>
+  </div></div>
+  <div class="about-grid">
+    <div>
+      <p class="tag">The Business</p>
+      <h2>Local knowledge.<br><span>Proper work.</span></h2>
+      <p>George Harper Trees &amp; Gardens has been working in the Stroud district for over ten years. We're a small, owner-operated business, which means you deal directly with the person doing the work.</p>
+      <p>We work for homeowners, private landowners, letting agents, and rural estates. Jobs range from a single hedge cut to multi-day tree clearance contracts.</p>
+      <p>We don't subcontract work out. When you book with us, George and his team do the job themselves.</p>
+    </div>
+    <div>
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Years in the Stroud area</div></div>
+        <div class="stat"><div class="stat-n">NPTC</div><div class="stat-l">National qualification</div></div>
+        <div class="stat"><div class="stat-n">£5m</div><div class="stat-l">Public liability insurance</div></div>
+        <div class="stat"><div class="stat-n">Free</div><div class="stat-l">Quotes on all work</div></div>
+      </div>
+      <div class="cred-list">
+        <div class="cred"><div class="cred-dot"></div><div><div class="cred-title">NPTC Qualified Arborist</div><div class="cred-sub">National Proficiency Tests Council certification</div></div></div>
+        <div class="cred"><div class="cred-dot"></div><div><div class="cred-title">Fully Insured</div><div class="cred-sub">£5 million public liability cover</div></div></div>
+        <div class="cred"><div class="cred-dot"></div><div><div class="cred-title">Waste Carrier Licence</div><div class="cred-sub">All waste removed and disposed of legally</div></div></div>
+        <div class="cred"><div class="cred-dot"></div><div><div class="cred-title">Safe Working Practices</div><div class="cred-sub">All climbing and chainsaw work follows current HSE guidelines</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="values"><div class="values-in">
+    <p class="tag">How We Work</p>
+    <h3>What You Can Expect</h3>
+    <div class="val-grid">
+      <div class="val"><div class="val-t">No Upselling</div><p>We tell you what needs doing and quote for that. We won't suggest extra work unless there's a genuine reason for it.</p></div>
+      <div class="val"><div class="val-t">Clean Site</div><p>All cuttings, logs, and debris are removed unless you'd like them kept. We leave the site tidy before we leave.</p></div>
+      <div class="val"><div class="val-t">Clear Quotes</div><p>We visit before quoting so you get an accurate price. No surprises on the invoice. Free quotes on all jobs.</p></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <div class="page-top"><div class="page-top-in"><span class="tag">Get in Touch</span>
+    <h1>Contact <span>Us</span></h1>
+    <p class="lead">Call, email, or send a message below. We'll get back to you the same day. All quotes are free with no obligation.</p>
+  </div></div>
+
+  <!-- Top row: details left, map right -->
+  <div class="contact-top">
+    <div class="contact-details">
+      <p class="tag">Contact Details</p>
+      <h2>Get in <span>Touch</span></h2>
+      <div class="ci-list">
+        <div class="ci">
+          <div class="ci-ico">&#128222;</div>
+          <div><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:07940087822">07940 087 822</a></div></div>
         </div>
-    </section>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="tree-icon">🌳</div>
-                <p class="hero-text">
-                    Friendly reliable, tree surgery and ground maintenance company, based in Nailsworth, Stroud
-                </p>
-            </div>
+        <div class="ci">
+          <div class="ci-ico">&#9993;</div>
+          <div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:g_harper@outlook.com">g_harper@outlook.com</a></div></div>
         </div>
-    </section>
-
-    <!-- Main Image Section -->
-    <section class="main-section">
-        <img src="File_006.jpeg" alt="Professional tree surgery and landscaping equipment at George Harper Trees & Gardens" class="hero-image">
-        <div class="loading-overlay" id="loadingOverlay">
-            <div class="loading-spinner">🌳</div>
+        <div class="ci">
+          <div class="ci-ico">&#128205;</div>
+          <div><div class="ci-lbl">Based in</div><div class="ci-val">Nailsworth, Stroud</div></div>
         </div>
-        <div class="overlay"></div>
-        
-        <div class="container">
-            <div class="tree-work-card">
-                <h2 class="tree-work-title">Tree Work</h2>
-                <ul class="tree-services">
-                    <li>Tree Removal</li>
-                    <li>Tree Planting</li>
-                    <li>Tree Pruning</li>
-                </ul>
-            </div>
+        <div class="ci">
+          <div class="ci-ico">&#128336;</div>
+          <div><div class="ci-lbl">Hours</div><div class="ci-val">Mon–Sat, 7:30am–6pm</div></div>
         </div>
-    </section>
+      </div>
+      <p class="contact-sub">We cover Stroud, Nailsworth, Minchinhampton, Painswick, and surrounding areas. Emergency callouts available.</p>
+    </div>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9909.773!2d-2.2203!3d51.6938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48710f3b2e3e3e3b%3A0x1f3e3e3e3e3e3e3e!2sNailsworth%2C%20Gloucestershire!5e0!3m2!1sen!2suk!4v1700000000000"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Nailsworth, Gloucestershire">
+      </iframe>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <a href="contact.html" class="get-touch-btn">GET IN TOUCH</a>
-                <a href="tel:07940087822" class="contact-item">📞 07940 087 822</a>
-                <a href="mailto:g_harper@outlook.com" class="contact-item">✉️ g_harper@outlook.com</a>
-            </div>
+  <!-- Full-width form underneath -->
+  <div class="contact-form-row">
+    <div class="form-inner">
+      <span class="form-tag">Free Quote Request</span>
+      <form id="contact-form" name="quote-request" method="POST" action="https://willowy-kashata-4b7e3c.netlify.app/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="quote-request">
+        <p hidden><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="frow">
+          <div class="ff"><label for="f-name">Your Name</label><input type="text" id="f-name" name="name" autocomplete="name" required placeholder="e.g. John Smith"></div>
+          <div class="ff"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" name="phone" autocomplete="tel" required placeholder="e.g. 07700 900 000"></div>
+          <div class="ff"><label for="f-area">Town / Village</label><input type="text" id="f-area" name="area" autocomplete="address-level2" placeholder="e.g. Nailsworth"></div>
         </div>
-    </footer>
+        <div class="frow two">
+          <div class="ff"><label for="f-email">Email Address</label><input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@example.com"></div>
+          <div class="ff"><label for="f-service">Type of Work</label>
+            <select id="f-service" name="service">
+              <option value="" disabled selected>Select a service</option>
+              <option>Tree Removal</option><option>Crown Reduction</option>
+              <option>Stump Grinding</option><option>Hedge Cutting</option>
+              <option>Lawn Care</option><option>Landscaping</option>
+              <option>Emergency Work</option><option>General enquiry</option>
+            </select>
+          </div>
+        </div>
+        <div class="frow full">
+          <div class="ff"><label for="f-msg">Details</label>
+            <textarea id="f-msg" name="message" placeholder="Brief description of the work. Any access issues, approximate tree size, or other details are helpful."></textarea>
+          </div>
+        </div>
+        <div class="fsub"><button id="form-submit-btn" type="submit">Send Message</button></div>
+        <p class="fnote">We aim to respond the same day. For urgent work, call 07940 087 822 directly.</p>
+        <p id="form-error" role="alert" hidden style="margin-top:16px;color:#9c2929;line-height:1.6">Your message could not be sent. Please try again, email <a href="mailto:g_harper@outlook.com" style="text-decoration:underline">g_harper@outlook.com</a>, or call <a href="tel:07940087822" style="text-decoration:underline">07940 087 822</a>.</p>
+      </form>
+      <div id="form-success" role="status" tabindex="-1">
+        <h4>Message Sent</h4>
+        <p>Thanks for getting in touch. George will be in touch shortly. For anything urgent, call 07940 087 822.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <script>
-        // Enhanced image loading with smooth animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroImage = document.querySelector('.hero-image');
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            const treeWorkCard = document.querySelector('.tree-work-card');
-            
-            // Show loading animation initially
-            treeWorkCard.style.opacity = '0';
-            treeWorkCard.style.transform = 'translateY(30px)';
-            
-            // Handle image loading
-            if (heroImage) {
-                heroImage.addEventListener('load', function() {
-                    // Hide loading overlay with smooth transition
-                    setTimeout(() => {
-                        loadingOverlay.classList.add('hidden');
-                        
-                        // Animate in the tree work card
-                        setTimeout(() => {
-                            treeWorkCard.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                            treeWorkCard.style.opacity = '1';
-                            treeWorkCard.style.transform = 'translateY(0)';
-                        }, 300);
-                    }, 500);
-                });
-                
-                // Fallback if image fails to load
-                heroImage.addEventListener('error', function() {
-                    console.log('Image failed to load, hiding loading overlay');
-                    loadingOverlay.classList.add('hidden');
-                    treeWorkCard.style.opacity = '1';
-                    treeWorkCard.style.transform = 'translateY(0)';
-                });
-                
-                // If image is already cached and loaded
-                if (heroImage.complete) {
-                    heroImage.dispatchEvent(new Event('load'));
-                }
-            }
-            
-            // Add smooth hover effects to service items
-            const serviceItems = document.querySelectorAll('.tree-services li');
-            serviceItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transition = 'all 0.3s ease';
-                });
-            });
-        });
+<footer id="site-footer">
+  <span>&#169; 2026 George Harper Trees &amp; Gardens</span>
+  <span style="color:rgba(240,235,224,.13)">Nailsworth &middot; Stroud &middot; Gloucestershire</span>
+  <div class="ft-links">
+    <button data-nav="services">Services</button>
+    <button data-nav="gallery">Gallery</button>
+    <button data-nav="about">About</button>
+    <button data-nav="contact">Contact</button>
+  </div>
+</footer>
 
-        // Add click feedback to all interactive elements
-        document.querySelectorAll('a, button').forEach(element => {
-            element.addEventListener('click', function(e) {
-                // Add visual feedback
-                this.style.transform = this.style.transform.includes('scale') 
-                    ? this.style.transform.replace(/scale\([^)]*\)/, 'scale(0.95)') 
-                    : (this.style.transform || '') + ' scale(0.95)';
-                
-                setTimeout(() => {
-                    this.style.transform = this.style.transform.replace(/scale\([^)]*\)/, '');
-                }, 150);
-            });
-        });
-    </script>
+<script>
+(function(){
+
+  /* PAGES */
+  var PAGES=['home','services','gallery','about','contact'];
+  function showPage(id){
+    PAGES.forEach(function(p){
+      var el=document.getElementById('page-'+p);
+      if(el) el.classList.toggle('active',p===id);
+    });
+    document.querySelectorAll('.nav-links button[data-nav]').forEach(function(b){
+      b.classList.toggle('active',b.dataset.nav===id);
+    });
+    window.scrollTo(0,0);
+    if(id==='gallery'){initCarousel(); startAuto();}
+    else stopAuto();
+  }
+
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-nav]');
+    if(!t) return;
+    e.preventDefault();
+    showPage(t.dataset.nav);
+    var dr=document.getElementById('drawer');
+    if(dr.classList.contains('open')){dr.classList.remove('open');document.body.style.overflow='';}
+  });
+
+  document.getElementById('ham-btn').addEventListener('click',function(){
+    var dr=document.getElementById('drawer');
+    var open=dr.classList.toggle('open');
+    document.body.style.overflow=open?'hidden':'';
+  });
+
+  var nav=document.getElementById('site-nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>40);});
+
+  /* CAROUSEL */
+  var PHOTOS=[
+    {
+        "src": "images/aa741a70-690f-4a2d-903a-09f91414eca4_edited.jpg",
+        "cat": "Tree Surgery",
+        "title": "Cutting the trunk into sections",
+        "alt": "Workers beside a large cut tree trunk on a riverbank",
+        "accent": "gold",
+        "job": "Tree clearance",
+        "jobPhoto": 1,
+        "jobTotal": 4
+    },
+    {
+        "src": "images/3021652b-ef74-4b5b-bfa7-d3ab98d548da.jpg",
+        "cat": "Tree Surgery",
+        "title": "Tractor-assisted clearance",
+        "alt": "Red tractor beside a large fallen tree trunk",
+        "accent": "green",
+        "job": "Tree clearance",
+        "jobPhoto": 2,
+        "jobTotal": 4
+    },
+    {
+        "src": "images/a9f924fa-0a6f-4fd9-a89f-5149e4d96691.jpg",
+        "cat": "Tree Surgery",
+        "title": "Securing timber for removal",
+        "alt": "Two workers attaching a chain to a cut tree trunk beside water",
+        "accent": "cream",
+        "job": "Tree clearance",
+        "jobPhoto": 3,
+        "jobTotal": 4
+    },
+    {
+        "src": "images/c9c1d5a8-0c1a-43fc-9929-2cb075787a41.jpg",
+        "cat": "Tree Surgery",
+        "title": "Moving heavy timber",
+        "alt": "Tractor and winch attached to a large cut log beside a river",
+        "accent": "gold",
+        "job": "Tree clearance",
+        "jobPhoto": 4,
+        "jobTotal": 4
+    },
+    {
+        "src": "images/4b150a56-6730-467a-bd28-bb35909a0463.jpg",
+        "cat": "Tree Surgery",
+        "title": "Roadside work area",
+        "alt": "Roadside trees with traffic cones marking the work area",
+        "accent": "green",
+        "job": "Roadside tree work",
+        "jobPhoto": 1,
+        "jobTotal": 1
+    },
+    {
+        "src": "images/9b1464d3-6681-4090-ac15-49a62627cacb.jpg",
+        "cat": "Hedge Cutting",
+        "title": "Hedge trimming",
+        "alt": "Trimmed hedge along the roadside in front of a house",
+        "accent": "cream",
+        "job": "Hedge cutting",
+        "jobPhoto": 1,
+        "jobTotal": 1
+    },
+    {
+        "src": "images/49af6951-2f52-4a7a-8dd5-07f4b483b9ed.jpg",
+        "cat": "Lawn Care",
+        "title": "Lawn and border maintenance",
+        "alt": "Wider view of a green lawn with picket fencing and a seating area",
+        "accent": "green",
+        "job": "Lawn care",
+        "jobPhoto": 1,
+        "jobTotal": 1
+    },
+    {
+        "src": "images/30627298-0460-4cde-b4c4-73adc277bced.jpg",
+        "cat": "Landscaping",
+        "title": "Timber fence installation",
+        "alt": "Timber fencing enclosing a garden beside terraced houses",
+        "accent": "cream",
+        "job": "Timber fencing",
+        "jobPhoto": 1,
+        "jobTotal": 1
+    },
+    {
+        "src": "images/4b177bef-0daa-4ce6-8ed7-c0e4de6d52f6.jpg",
+        "cat": "Landscaping",
+        "title": "Posts and rails installed",
+        "alt": "Timber fence posts and rails during installation on a sloping boundary",
+        "accent": "gold",
+        "job": "Boundary fencing",
+        "jobPhoto": 1,
+        "jobTotal": 2
+    },
+    {
+        "src": "images/6486e246-c81f-4f79-93d9-49712a6a5fe8.jpg",
+        "cat": "Landscaping",
+        "title": "Finished timber fence",
+        "alt": "Completed timber boundary fence running up a slope beside houses",
+        "accent": "green",
+        "job": "Boundary fencing",
+        "jobPhoto": 2,
+        "jobTotal": 2
+    }
+];
+
+  var carIdx=0, carBuilt=false, autoTimer=null, autoPaused=false;
+
+  function initCarousel(){
+    if(carBuilt) return;
+    carBuilt=true;
+    var track   = document.getElementById('car-track');
+    var dots    = document.getElementById('car-dots');
+
+    track.innerHTML = PHOTOS.map(function(p,i){
+      return '<div class="carousel-slide accent-'+p.accent+(i===0?' current':'')+'" data-idx="'+i+'">'
+        +'<img src="'+p.src+'" alt="'+p.alt+'" loading="'+(i===0?'eager':'lazy')+'">'
+        +'<div class="c-counter">'+(i+1)+' / '+PHOTOS.length+'</div>'
+        +'<div class="carousel-caption">'
+          +'<span class="c-cat">'+p.job+'</span>'
+        +'</div>'
+        +'</div>';
+    }).join('');
+
+    dots.innerHTML = PHOTOS.map(function(_,i){
+      return '<button type="button" class="dot'+(i===0?' active':'')+'" data-car-dot="'+i+'" aria-label="Show photo '+(i+1)+'"></button>';
+    }).join('');
+
+    document.getElementById('car-jobs').innerHTML = PHOTOS.map(function(p,i){
+      if(i>0 && PHOTOS[i-1].job===p.job) return '';
+      return '<button type="button" class="job-button" data-car-job="'+i+'">'+p.job+'</button>';
+    }).join('');
+    goTo(0);
+  }
+
+  function goTo(i){
+    carIdx = (i + PHOTOS.length) % PHOTOS.length;
+    document.getElementById('car-track').style.transform = 'translateX(-'+carIdx+'00%)';
+
+    document.querySelectorAll('.carousel-slide').forEach(function(s,j){
+      var isCurrent = j === carIdx;
+      s.classList.toggle('current', isCurrent);
+      s.classList.toggle('lit', isCurrent);
+    });
+    document.querySelectorAll('.dot').forEach(function(d,j){
+      d.classList.toggle('active', j===carIdx);
+    });
+    document.querySelectorAll('[data-car-job]').forEach(function(b){
+      var active=PHOTOS[Number(b.dataset.carJob)].job===PHOTOS[carIdx].job;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-pressed',String(active));
+    });
+  }
+
+  function stopAuto(){
+    clearInterval(autoTimer);
+    autoTimer=null;
+  }
+
+  function startAuto(){
+    stopAuto();
+    if(autoPaused || document.hidden || !carBuilt || !document.getElementById('page-gallery').classList.contains('active')) return;
+    autoTimer=setInterval(function(){goTo(carIdx+1);},5000);
+  }
+
+  document.getElementById('car-toggle').addEventListener('click',function(){
+    autoPaused=!autoPaused;
+    this.textContent=autoPaused?'Resume slideshow':'Pause slideshow';
+    startAuto();
+  });
+  document.addEventListener('visibilitychange',startAuto);
+
+  document.getElementById('car-prev').addEventListener('click',function(){
+    goTo(carIdx-1); startAuto();
+  });
+  document.getElementById('car-next').addEventListener('click',function(){
+    goTo(carIdx+1); startAuto();
+  });
+  document.getElementById('car-dots').addEventListener('click',function(e){
+    var t=e.target.closest('[data-car-dot]');
+    if(t){goTo(parseInt(t.dataset.carDot,10)); startAuto();}
+  });
+
+  document.getElementById('car-jobs').addEventListener('click',function(e){
+    var t=e.target.closest('[data-car-job]');
+    if(t){goTo(Number(t.dataset.carJob)); startAuto();}
+  });
+
+  /* Change photos only for a predominantly horizontal, single-finger swipe. */
+  var touchX=null, touchY=null;
+  function resetTouch(){touchX=null; touchY=null;}
+  document.getElementById('carousel').addEventListener('touchstart',function(e){
+    if(e.touches.length!==1){resetTouch(); return;}
+    touchX=e.touches[0].clientX;
+    touchY=e.touches[0].clientY;
+  },{passive:true});
+  document.getElementById('carousel').addEventListener('touchmove',function(e){
+    if(e.touches.length!==1){resetTouch(); return;}
+    if(touchX===null) return;
+    var dx=Math.abs(e.touches[0].clientX-touchX);
+    var dy=Math.abs(e.touches[0].clientY-touchY);
+    if(dx>10 && dx>dy) e.preventDefault();
+  },{passive:false});
+  document.getElementById('carousel').addEventListener('touchend',function(e){
+    if(touchX===null) return;
+    if(e.touches.length || !e.changedTouches.length){resetTouch(); return;}
+    var dx=touchX-e.changedTouches[0].clientX;
+    var dy=touchY-e.changedTouches[0].clientY;
+    resetTouch();
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)){
+      goTo(carIdx+(dx>0?1:-1));
+      startAuto();
+    }
+  },{passive:true});
+  document.getElementById('carousel').addEventListener('touchcancel',resetTouch,{passive:true});
+
+  /* FORM — Netlify stores the enquiry; dashboard notifications email it. */
+  var contactForm=document.getElementById('contact-form');
+  var submitButton=document.getElementById('form-submit-btn');
+  var formError=document.getElementById('form-error');
+  function resetSubmitButton(){
+    contactForm.removeAttribute('aria-busy');
+    submitButton.disabled=false;
+    submitButton.textContent='Send Message';
+  }
+  // A restored page must allow another attempt after a native form navigation.
+  window.addEventListener('pageshow',resetSubmitButton);
+  contactForm.addEventListener('submit',async function(e){
+    if(submitButton.disabled){e.preventDefault(); return;}
+    if(!contactForm.reportValidity()){e.preventDefault(); return;}
+    if(!document.getElementById('f-name').value.trim() || !document.getElementById('f-phone').value.trim()){
+      e.preventDefault();
+      alert('Please enter your name and phone number so we can get back to you.');
+      return;
+    }
+    formError.hidden=true;
+    submitButton.disabled=true;
+    submitButton.textContent='Sending…';
+    contactForm.setAttribute('aria-busy','true');
+    // GitHub Pages submits directly to Netlify as a normal browser navigation.
+    // This avoids cross-origin AJAX and never treats an unreadable reply as success.
+    if(new URL(contactForm.getAttribute('action'),window.location.href).origin!==window.location.origin) return;
+    e.preventDefault();
+    var controller=new AbortController();
+    var timeout=setTimeout(function(){controller.abort();},20000);
+    try{
+      var response=await fetch(contactForm.getAttribute('action'),{
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:new URLSearchParams(new FormData(contactForm)).toString(),
+        signal:controller.signal
+      });
+      if(!response.ok) throw new Error('Submission failed');
+      contactForm.style.display='none';
+      var success=document.getElementById('form-success');
+      success.style.display='block';
+      success.focus();
+      contactForm.reset();
+    }catch(error){
+      formError.hidden=false;
+    }finally{
+      clearTimeout(timeout);
+      resetSubmitButton();
+    }
+  });
+
+})();
+</script>
 </body>
 </html>
